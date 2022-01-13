@@ -1,0 +1,79 @@
+.sidebar {
+  width: 270px;
+  height: 100%;
+}
+
+.leftSidebar {
+  width: 270px;
+  padding: 5px 0px;
+  top: 75px;
+  position: fixed;
+  height: calc(100vh - 60px);
+  background: #ffffff;
+  overflow: auto;
+  z-index: 98;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 24%);
+}
+
+/* width */
+.leftSidebar::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+.leftSidebar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+.leftSidebar::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+.leftSidebar::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.sidebarItem {
+  display: flex;
+  align-items: center;
+  padding: 10px 30px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.sidebarItem:hover {
+  transform: translateX(10px);
+  transition: all 0.45s cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+}
+
+.sidebarImg {
+  width: 30px;
+}
+
+.sidebarDividerText,
+.sidebarText {
+  font-size: 15px;
+  font-weight: 700;
+  color: #006a4e;
+  padding-left: 15px;
+}
+
+.sidebarDivider {
+  background: rgb(244, 244, 244);
+  padding: 10px 30px;
+  margin-bottom: 5px;
+}
+
+.sidebarDividerText {
+  color: #808080;
+}
+
+.sidebarDividerText span {
+  color: #006a4e;
+}
+
+.sidebarDividerText .lastname {
+  color: #fb6801;
+}

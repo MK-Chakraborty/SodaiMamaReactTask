@@ -1,0 +1,87 @@
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.containerContent {
+  max-width: 1240px;
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 126px;
+}
+
+/* --------------------------------------- *\
+                Common Heading
+/* ---------------------------------------- */
+
+.preorder {
+  background: hsla(0, 0%, 50.2%, 0.09019607843137255);
+  padding: 15px 30px;
+  position: relative;
+  text-align: start;
+  margin-top: 50px;
+}
+
+.leftBorder {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 70%;
+  width: 10px;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  border-radius: 5px;
+  background: rgb(68, 189, 50);
+}
+
+.title {
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 40px;
+  color: #313131;
+}
+
+/* --------------------------------------- *\
+            Preorder Product
+/* ---------------------------------------- */
+
+.preorderProductList {
+  position: relative;
+  min-height: 223px;
+  width: 280px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  background: #fff;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 24%);
+  overflow: hidden;
+}
+
+.offerItemImg img {
+  width: 100%;
+  transition: all 0.45s cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+}
+
+.offerItemImg img:hover {
+  transform: scale(1.2);
+}
+
+.offerItemContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  background: #ffffff;
+  position: absolute;
+  width: 90%;
+  bottom: 0;
+  left: 0;
+  height: 60px;
+}
+
+.offerItemContent p {
+  color: #615e58;
+}
