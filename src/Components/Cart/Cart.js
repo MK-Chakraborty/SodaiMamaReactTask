@@ -12,6 +12,7 @@ const Cart = ({ cart }) => {
     total = total + Math.ceil(product.price * 85) * product.quantity;
     totalQuantity = totalQuantity + product.quantity;
   }
+
   return (
     <section>
       <div className="productValues">
