@@ -1,14 +1,46 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Banner from "../Banner/Banner";
 import "./MainHomeContainer.css";
 import service1 from "../../images/service1.png";
 import service2 from "../../images/service2.png";
+import ProductCard from "../ProductCard/ProductCard";
 
 const MainHomeContainer = () => {
+  const [products, setProducts] = useState([]);
+  const [cart, setCart] = useState([]);
+  // fatching data from fakeStoreAPI
+  useEffect(() => {
+    fetch("https://fakestoreapi.com/products")
+      .then((res) => res.json())
+      .then((data) => setProducts(data));
+  }, []);
+
+  // event listener for product button click
+  const handleAddToCart = (product) => {
+    const newCart = [...cart, product];
+    setCart(newCart);
+  };
+
+  console.log(products);
+
   return (
     <section className="container">
       <section className="containerContent">
         <Banner />
+
+        {/* Commence of Cart Section */}
+        <section className="sectionHeading cartHeading">
+          <p className="headingText">
+            Your Cart <i className="fas fa-shopping-cart"></i>
+          </p>
+        </section>
+        <section className="homeCart">
+          <h1>{cart.length}</h1>
+          {!cart.length && (
+            <p>Your Selected Products will have Displayed Here!</p>
+          )}
+        </section>
+        {/* Termination of Cart Section */}
 
         {/* Commence of Product Heading */}
         <section className="preorder">
@@ -52,6 +84,28 @@ const MainHomeContainer = () => {
           </a>
         </section>
         {/* Termination of Preorder Product List */}
+
+        {/* Commence of Product Heading */}
+        <section className="preorder">
+          <div className="leftBorder"></div>
+          <p className="title">Products</p>
+          <p className="subtitle">
+            ফেইক স্টোর এপিআই এর সব প্রোডাক্ট এখানে দেখুন।
+          </p>
+        </section>
+        {/* Termination of Product Heading */}
+
+        {/* Commence of regular products List */}
+        <section className="products">
+          {products.map((product) => (
+            <ProductCard
+              key={product.id}
+              product={product}
+              handleAddToCart={handleAddToCart}
+            />
+          ))}
+        </section>
+        {/* Termination of regular products List */}
 
         {/* Commence of Product Catagory List  */}
         <section className="sectionHeading">
