@@ -4,10 +4,12 @@ import "./MainHomeContainer.css";
 import service1 from "../../images/service1.png";
 import service2 from "../../images/service2.png";
 import ProductCard from "../ProductCard/ProductCard";
+import Cart from "../Cart/Cart";
 
 const MainHomeContainer = () => {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
+
   // fatching data from fakeStoreAPI
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
@@ -21,8 +23,6 @@ const MainHomeContainer = () => {
     setCart(newCart);
   };
 
-  console.log(products);
-
   return (
     <section className="container">
       <section className="containerContent">
@@ -35,8 +35,9 @@ const MainHomeContainer = () => {
           </p>
         </section>
         <section className="homeCart">
-          <h1>{cart.length}</h1>
-          {!cart.length && (
+          {cart.length ? (
+            <Cart cart={cart} />
+          ) : (
             <p>Your Selected Products will have Displayed Here!</p>
           )}
         </section>

@@ -1,0 +1,11 @@
+.productValues {
+  display: flex;
+  justify-content: space-around;
+}
+
+.productValues p {
+  font-size: 20px;
+  font-weight: 700;
+  color: #006a4e;
+  padding-left: 15px;
+}
