@@ -5,6 +5,7 @@ import service1 from "../../images/service1.png";
 import service2 from "../../images/service2.png";
 import ProductCard from "../ProductCard/ProductCard";
 import Cart from "../Cart/Cart";
+import { addToDb, getStoredCart } from "../../utilities/handleLocalStorage";
 
 const MainHomeContainer = () => {
   const [products, setProducts] = useState([]);
@@ -17,10 +18,29 @@ const MainHomeContainer = () => {
       .then((data) => setProducts(data));
   }, []);
 
+  // fetching cart products form localStorage
+  useEffect(() => {
+    if (products.length) {
+      const savedCart = getStoredCart();
+      const storedCart = [];
+      for (const id in savedCart) {
+        const addedproduct = products.find((product) => product.id == id);
+        if (addedproduct) {
+          const quantity = savedCart[id];
+          addedproduct.quantity = quantity;
+          storedCart.push(addedproduct);
+        }
+      }
+      setCart(storedCart);
+    }
+  }, [products]);
+
   // event listener for product button click
   const handleAddToCart = (product) => {
     const newCart = [...cart, product];
     setCart(newCart);
+    // JSON.stringify(product)
+    addToDb(product.id);
   };
 
   return (
